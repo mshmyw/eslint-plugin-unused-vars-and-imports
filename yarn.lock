@@ -1369,7 +1369,7 @@ eslint-plugin-react@^7.32.2:
     semver "^6.3.0"
     string.prototype.matchall "^4.0.8"
 
-"eslint-plugin-vars-demo@file:./eslint-rules":
+"eslint-plugin-vars-demo@file:eslint-rules":
   version "1.0.0"
 
 eslint-scope@^5.1.1:
