@@ -12,15 +12,18 @@ module.exports = {
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
+        "project": [
+            "./tsconfig.json",
+          ],
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
     "plugins": [
-        "demo",
+        "vars-demo",
         "react",
         "@typescript-eslint"
     ],
     "rules": {
-        'demo/no-number-float-calculation': 'error'
+        "vars-demo/no-raw-number-calculation": 'error'
     }
 }
