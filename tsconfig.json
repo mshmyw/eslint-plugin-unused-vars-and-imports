@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "CommonJS",
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "sourceMap": false,
+    "baseUrl": ".",
+    "checkJs": false,
+    "lib": ["esnext", "DOM"],
+    "paths": {
+      // path alias
+      "@/*": [
+        "src/*"
+      ]
+    },
+  },
+  "include": [
+    "src/**/*.ts",
+    "eslint-rules/index.ts",
+    "eslint-rules/no-raw-float-calculation.ts"
+  ],
+  "exclude": [
+    "node_modules",
+  ]
+ }

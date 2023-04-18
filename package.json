@@ -1,0 +1,26 @@
+{
+  "name": "remove-unused-vars-imports",
+  "version": "1.0.0",
+  "description": "remove unused vars and imports",
+  "main": "index.ts",
+  "keywords": ["lint", "auto_fixed"],
+  "license": "",
+  "scripts": {
+    "test": "jest",
+    "build:rule": "tsc",
+    "lint": "eslint ./src"
+  },
+  "devDependencies": {
+    "eslint-plugin-vars-demo": "file:./eslint-rules",
+    "@types/jest": "^29.5.0",
+    "@types/node": "^18.15.11",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "@typescript-eslint/utils": "^5.59.0",
+    "eslint": "^8.38.0",
+    "eslint-plugin-react": "^7.32.2",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.0.4"
+  }
+}
