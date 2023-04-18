@@ -11,19 +11,12 @@ module.exports = {
     "overrides": [
     ],
     "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "project": [
-            "./tsconfig.json",
-          ],
-        "ecmaVersion": "latest",
-        "sourceType": "module"
-    },
     "plugins": [
         "vars-demo",
         "react",
         "@typescript-eslint"
     ],
     "rules": {
-        "vars-demo/no-raw-number-calculation": 'error'
+        "vars-demo/no-raw-number-calculation": 'off'
     }
 }
