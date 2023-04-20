@@ -1,0 +1,6 @@
+{
+    "extends": "../../tsconfig.json", // 继承根目录下ts的配置
+    "include": [
+      "file.ts"
+    ]
+  }
