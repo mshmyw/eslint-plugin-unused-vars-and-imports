@@ -1,15 +1,13 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const utils_1 = require("@typescript-eslint/utils");
+import { ESLintUtils } from '@typescript-eslint/utils';
 // https://typescript-eslint.io/docs/development/custom-rules
-const createRule = utils_1.ESLintUtils.RuleCreator(
+const createRule = ESLintUtils.RuleCreator(
 // rule 的说明文档链接
 name => `https://example.com/rule/${name}`);
 /**
  * Options: rule 支持的参数
  * MessageIds: 上传错误提示的id
  */
-exports.default = createRule({
+export default createRule({
     name: 'no-raw-number-calculation',
     meta: {
         type: 'problem',
@@ -25,7 +23,7 @@ exports.default = createRule({
     },
     defaultOptions: [],
     create(context) {
-        const parserServices = utils_1.ESLintUtils.getParserServices(context);
+        const parserServices = ESLintUtils.getParserServices(context);
         const checker = parserServices.program.getTypeChecker();
         const getNodeType = (node) => {
             // eslint ast 节点 和 TypeScript ts.Node 等效项的映射

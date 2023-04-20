@@ -17,6 +17,6 @@ module.exports = {
         "@typescript-eslint"
     ],
     "rules": {
-        "vars-demo/no-raw-number-calculation": 'off'
+        "vars-demo/no-raw-number-calculation": 'error'
     }
 }
