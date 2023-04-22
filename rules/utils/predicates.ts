@@ -1,5 +1,5 @@
 import { TSESLint } from "@typescript-eslint/utils";
-import {hasSideEffect} from "./utils"
+import {hasSideEffect} from "."
 const commaFilter = { filter: (token) => token.value === "," };
 const includeCommentsFilter = { includeComments: true };
 

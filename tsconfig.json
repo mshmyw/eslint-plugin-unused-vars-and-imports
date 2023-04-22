@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "outDir": "lib",
     "target": "ES6",
     "module": "ESNext",
     "skipLibCheck": true,
@@ -19,8 +20,7 @@
   },
   "include": [
     "src/**/*.ts",
-    "eslint-rules/index.ts",
-    "eslint-rules/no-raw-float-calculation.ts"
+    "rules/index.ts",
   ],
   "exclude": [
     "node_modules",

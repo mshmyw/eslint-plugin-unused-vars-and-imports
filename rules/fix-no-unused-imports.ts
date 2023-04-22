@@ -1,4 +1,4 @@
-import { unusedImportsPredicate } from "./predicates";
+import { unusedImportsPredicate } from "./utils/predicates";
 import {rules } from "@typescript-eslint/eslint-plugin"
 import ruleComposer from "eslint-rule-composer"
 
