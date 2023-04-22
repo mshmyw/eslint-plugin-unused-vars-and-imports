@@ -1,11 +1,10 @@
-import { unusedImportsPredicate } from "./predicates";
-import {rules } from "@typescript-eslint/eslint-plugin"
-import ruleComposer from "eslint-rule-composer"
-
-const rule = rules['no-unused-vars']
+import { unusedVarsPredicate } from "./predicates";
+import { rules } from "@typescript-eslint/eslint-plugin";
+import ruleComposer from "eslint-rule-composer";
+const rule = rules['no-unused-vars'];
 rule.meta.fixable = "code";
 rule.meta.messages = {
-    unusedVar: '声明但未使用的导入变量，可使用 --fix 移除',
+    unusedVar: '声明但未使用的局部变量，可使用 --fix 移除',
 };
 // const rule = {
 //     ...noUnusedVarsBaseRule,
@@ -24,5 +23,4 @@ rule.meta.messages = {
 //         schema: noUnusedVarsBaseRule.meta.schema,
 //     }
 // }
-
-export default ruleComposer.filterReports(rule, unusedImportsPredicate);
+export default ruleComposer.filterReports(rule, unusedVarsPredicate);

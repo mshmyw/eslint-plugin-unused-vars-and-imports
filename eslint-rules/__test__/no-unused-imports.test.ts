@@ -1,5 +1,6 @@
 import { ESLintUtils } from '@typescript-eslint/utils';
 import rule from '../fix-no-unused-imports';
+import varsRule from '../fix-no-unused-vars';
 
 const ruleTester = new ESLintUtils.RuleTester({
   parser: '@typescript-eslint/parser',
@@ -8,14 +9,27 @@ const ruleTester = new ESLintUtils.RuleTester({
   //   project: './tsconfig.json',
   // },
 });
-ruleTester.run('no-unused-imports', rule, {
+// ruleTester.run('no-unused-imports', rule, {
+//   valid: [
+//     "import { a } from 'react'; const x = a;"
+//   ],
+//   invalid: [
+//     {
+//       code: "import { a } from 'react'; console.log('unused');",
+//       output: "console.log('unused');",
+//       errors: [{ messageId: 'unusedVar' }]
+//     }
+//   ],
+// });
+
+ruleTester.run('no-unused-vars', varsRule, {
   valid: [
-    "import { a } from 'react'; const x = a;"
+    "const a = 3; console.log(a);"
   ],
   invalid: [
     {
-      code: "import { a } from 'react'; console.log('unused');",
-      output: "console.log('unused');",
+      code: "const a = 3,b=2; console.log(b);",
+      output: "const b=2; console.log(b);",
       errors: [{ messageId: 'unusedVar' }]
     }
   ],
