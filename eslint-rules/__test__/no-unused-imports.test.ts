@@ -1,5 +1,5 @@
 import { ESLintUtils } from '@typescript-eslint/utils';
-import rule from '../no-unused-imports';
+import rule from '../fix-no-unused-imports';
 
 const ruleTester = new ESLintUtils.RuleTester({
   parser: '@typescript-eslint/parser',
@@ -16,7 +16,7 @@ ruleTester.run('no-unused-imports', rule, {
     {
       code: "import { a } from 'react'; console.log('unused');",
       output: "console.log('unused');",
-      errors: [{ messageId: 'fixUnusedVarsAndImports' }]
+      errors: [{ messageId: 'unusedVar' }]
     }
   ],
 });
