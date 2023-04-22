@@ -2,7 +2,7 @@
   "name": "eslint-plugin-unused-vars-and-imports",
   "version": "1.0.0",
   "description": "remove unused vars and imports",
-  "main": "index.ts",
+  "main": "lib/rules/index.js",
   "keywords": [
     "lint",
     "auto_fixed"
