@@ -8,9 +8,10 @@
     "auto_fixed"
   ],
   "scripts": {
-    "test": "jest",
-    "build:rule": "tsc",
-    "lint": "eslint ./src"
+    "test": "pnpm build && jest",
+    "build": "tsc",
+    "lint": "eslint ./src",
+    "clear": "rm -rf lib"
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",
@@ -24,7 +25,6 @@
     "babel-jest": "^29.5.0",
     "eslint": "^8.38.0",
     "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-vars-demo": "file:eslint-rules",
     "jest": "^29.5.0",
     "ts-jest": "^29.1.0",
     "typescript": "^5.0.4"
