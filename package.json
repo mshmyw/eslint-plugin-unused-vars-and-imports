@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "remove unused vars and imports",
   "main": "lib/rules/index.js",
-  "type": "module",
   "keywords": [
     "lint",
     "auto_fixed"
