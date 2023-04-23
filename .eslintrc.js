@@ -5,18 +5,14 @@ module.exports = {
     },
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended"
     ],
-    "overrides": [
-    ],
+    "overrides": [],
     "parser": "@typescript-eslint/parser",
     "plugins": [
         "vars-demo",
         "react",
         "@typescript-eslint"
     ],
-    "rules": {
-        "vars-demo/no-raw-number-calculation": 'error'
-    }
+    "rules": {}
 }
