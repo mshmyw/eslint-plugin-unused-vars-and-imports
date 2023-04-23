@@ -75,9 +75,10 @@ export const unusedVarsPredicate = (problem, context) => {
 						return [fixer.remove(parent), fixer.remove(comma)];
 					}
 
+					const comma = sourceCode.getTokenAfter(parent, commaFilter);
 					return [
 						fixer.remove(parent),
-						fixer.remove(sourceCode.getTokenAfter(parent, commaFilter))
+						fixer.remove(comma)
 					];
 				}
 				break;
@@ -89,14 +90,31 @@ export const unusedVarsPredicate = (problem, context) => {
 					if (hasSideEffect(parent.right)) {
 						return null;
 					}
-					const grandParent = parent.parent;
+					let grandParent = parent.parent;
 					if (!grandParent) {
 						return null;
 					}
-					if(['ArrowFunctionExpression'].includes(grandParent.type)) {
-						return null
+
+					grandParent = grandParent.parent;
+					if (!(grandParent && grandParent.type === "ObjectPattern")) {
+						return null;
 					}
-					return fixer.remove(parent);
+
+					if (grandParent.properties.length === 1) {
+						const identifierRemoval = fixer.remove(parent);
+						const comma = sourceCode.getLastToken(grandParent, commaFilter);
+						return comma ? [identifierRemoval, fixer.remove(comma)] : identifierRemoval;
+					}
+					if (parent === grandParent.properties[grandParent.properties.length - 1]) {
+						const comma = sourceCode.getTokenBefore(parent, commaFilter);
+						return [fixer.remove(parent), fixer.remove(comma)];
+					}
+
+					const comma = sourceCode.getTokenAfter(parent, commaFilter);
+					return [
+						fixer.remove(parent),
+						fixer.remove(comma)
+					];
 				}
 				break;
 			case "ArrayPattern":
