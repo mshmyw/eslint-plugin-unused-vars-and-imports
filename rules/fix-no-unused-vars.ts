@@ -5,7 +5,7 @@ import ruleComposer from "eslint-rule-composer"
 const rule = rules['no-unused-vars']
 rule.meta.fixable = "code";
 rule.meta.messages = {
-    unusedVar: '声明但未使用的局部变量，可使用 --fix 移除',
+    unusedVar: '声明但未使用的局部变量',
 };
 // const rule = {
 //     ...noUnusedVarsBaseRule,

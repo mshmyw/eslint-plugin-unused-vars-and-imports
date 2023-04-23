@@ -10,9 +10,11 @@ module.exports = {
     "overrides": [],
     "parser": "@typescript-eslint/parser",
     "plugins": [
-        "vars-demo",
-        "react",
-        "@typescript-eslint"
+        "unused-vars-and-imports"
     ],
-    "rules": {}
+    rules: {
+        "no-unused-vars": "off",
+        "unused-vars-and-imports/no-unused-imports": "error",
+        "unused-vars-and-imports/no-unused-vars": "error"
+      },
 }
