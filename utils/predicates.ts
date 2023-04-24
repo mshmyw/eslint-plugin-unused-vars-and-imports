@@ -21,11 +21,7 @@ export const unusedVarsPredicate = (problem, context) => {
 			return false;
 		case "VariableDeclarator":
 			problem.fix = (fixer) => {
-				if (!parent) {
-					return null;
-				}
 				const grandParent = parent.parent;
-
 				if (!grandParent) {
 					return null;
 				}
@@ -49,11 +45,7 @@ export const unusedVarsPredicate = (problem, context) => {
 			case "RestElement":
 			case "Property":
 				problem.fix = (fixer) => {
-					if (!parent) {
-						return null;
-					}
 					const grandParent = parent.parent;
-
 					if (!grandParent) {
 						return null;
 					}
@@ -63,10 +55,8 @@ export const unusedVarsPredicate = (problem, context) => {
 					}
 
 					if (grandParent.properties.length === 1) {
-						const identifierRemoval = fixer.remove(parent);
-						const comma = sourceCode.getLastToken(grandParent, commaFilter);
-
-						return comma ? [identifierRemoval, fixer.remove(comma)] : identifierRemoval;
+						// 为谨慎起见，只有一个属性时不做处理，否则可能引起其他问题
+						return null;
 					}
 
 					if (parent === grandParent.properties[grandParent.properties.length - 1]) {
@@ -84,9 +74,6 @@ export const unusedVarsPredicate = (problem, context) => {
 				break;
 			case "AssignmentPattern":
 				problem.fix = (fixer) => {
-					if (!parent) {
-						return null;
-					}
 					if (hasSideEffect(parent.right)) {
 						return null;
 					}
@@ -95,23 +82,33 @@ export const unusedVarsPredicate = (problem, context) => {
 						return null;
 					}
 
-					grandParent = grandParent.parent;
-					if (!(grandParent && grandParent.type === "ObjectPattern")) {
-						return null;
+					let isArray = false
+					switch(grandParent.type) {
+						case 'ArrayPattern':
+							isArray = true
+							if (grandParent.elements.length === 1) {
+								// 为谨慎起见，只有一个属性时不做处理，否则可能引起其他问题
+								return null;
+							}
+							break
+						case 'Property':
+							grandParent = grandParent.parent
+							if (grandParent.type !== 'ObjectPattern' ||  grandParent.properties.length === 1) {
+								// 为谨慎起见，只有一个属性时不做处理，否则可能引起其他问题
+								return null;
+							}
+							break
 					}
-
-					if (grandParent.properties.length === 1) {
-						const identifierRemoval = fixer.remove(parent);
-						const comma = sourceCode.getLastToken(grandParent, commaFilter);
-						return comma ? [identifierRemoval, fixer.remove(comma)] : identifierRemoval;
-					}
-					if (parent === grandParent.properties[grandParent.properties.length - 1]) {
+					const key = isArray ? 'elements': 'properties'
+					if (parent === grandParent[key][grandParent[key].length - 1]) {
 						const comma = sourceCode.getTokenBefore(parent, commaFilter);
 						return [fixer.remove(parent), fixer.remove(comma)];
 					}
 
 					const comma = sourceCode.getTokenAfter(parent, commaFilter);
-					return [
+					return isArray ? [
+						fixer.remove(parent),
+					]:[
 						fixer.remove(parent),
 						fixer.remove(comma)
 					];
@@ -119,8 +116,14 @@ export const unusedVarsPredicate = (problem, context) => {
 				break;
 			case "ArrayPattern":
 				problem.fix = (fixer) => {
+					if (parent.elements.length === 1) {
+						// 为谨慎起见，只有一个属性时不做处理，否则可能引起其他问题
+						return null;
+					}
+
 					return fixer.remove(node);
 				}
+				break;
 		default:
 			return problem;
 	}
