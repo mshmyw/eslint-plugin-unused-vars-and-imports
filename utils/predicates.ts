@@ -98,6 +98,8 @@ export const unusedVarsPredicate = (problem, context) => {
 								return null;
 							}
 							break
+						default:
+							return null
 					}
 					const key = isArray ? 'elements': 'properties'
 					if (parent === grandParent[key][grandParent[key].length - 1]) {
