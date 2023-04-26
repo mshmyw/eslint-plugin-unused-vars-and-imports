@@ -34,12 +34,13 @@ module.exports = {
 > 注：由于是移除操作，还是谨慎操作，做好review，特别是注意带有side-effects的导入
 
 # 参考：
-1.  [eslint-rule-composer](https://github.com/not-an-aardvark/eslint-rule-composer)
-2. [eslint-plugin-unused-imports](https://github.com/sweepline/eslint-plugin-unused-imports)
-3. [eslint fix](https://zh-hans.eslint.org/docs/latest/extend/custom-rules#%E5%BA%94%E7%94%A8%E4%BF%AE%E5%A4%8D)
-4. https://smartdevpreneur.com/the-3-best-eslint-no-unused-vars-option-settings-make-it-less-strict/
-5. https://eslint.org/docs/latest/rules/no-unused-vars
-6. https://itnext.io/7-recommended-eslint-rules-for-react-typescript-project-1a22b011b4b5
-7. https://github.com/aladdin-add/eslint-plugin
-8. https://zh-hans.eslint.org/docs/latest/extend/selectors
-9. https://eslint.org/docs/latest/extend/custom-rules
+1. [eslint-selectors](https://zh-hans.eslint.org/docs/latest/extend/selectors)
+2. [custom-rules-for-eslint](https://eslint.org/docs/latest/extend/custom-rules)
+3. [custom-rules-for-typescript](https://typescript-eslint.io/custom-rules)
+4. [eslint-rule-composer](https://github.com/not-an-aardvark/eslint-rule-composer)
+5. [eslint fix](https://zh-hans.eslint.org/docs/latest/extend/custom-rules#%E5%BA%94%E7%94%A8%E4%BF%AE%E5%A4%8D)
+6. [no-unused-vars](https://eslint.org/docs/latest/rules/no-unused-vars)
+7. [eslint-plugin-unused-imports](https://github.com/sweepline/eslint-plugin-unused-imports)
+8. [typescript-eslint/no-unused-vars](https://typescript-eslint.io/rules/no-unused-vars)
+9. [7-recommended-eslint-rules-for-react-typescript-project](https://itnext.io/7-recommended-eslint-rules-for-react-typescript-project-1a22b011b4b5)
+10. [eslint-no-autofix](https://github.com/aladdin-add/eslint-plugin)
