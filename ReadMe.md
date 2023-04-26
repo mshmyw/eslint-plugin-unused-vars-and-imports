@@ -22,6 +22,7 @@ module.exports = {
         "unused-vars-and-imports/no-unused-vars": "error"
     }
 }
+```
 
 执行修复 `package.json` 配置：
 ```
@@ -29,6 +30,7 @@ module.exports = {
     "lint": "eslint ./src --fix . --ext .ts,.tsx",
   }
 ```
+
 > 注：由于是移除操作，还是谨慎操作，做好review，特别是注意带有side-effects的导入
 
 # 参考：
