@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-unused-vars-and-imports",
-  "version": "1.0.4",
-  "description": "remove unused vars and imports",
+  "version": "1.0.5",
+  "description": "remove unused vars and imports for typescript",
   "main": "lib/rules/index.js",
   "keywords": [
     "lint",
@@ -12,6 +12,9 @@
     "build": "tsc",
     "lint": "eslint ./src",
     "clear": "rm -rf lib"
+  },
+  "repository": {
+    "url": "https://github.com/mshmyw/eslint-plugin-unused-vars-and-imports"
   },
   "peerDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.59.0",

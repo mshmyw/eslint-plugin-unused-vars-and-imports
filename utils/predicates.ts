@@ -99,6 +99,7 @@ export const unusedVarsPredicate = (problem, context) => {
 							}
 							break
 						default:
+							// 其他非预期行为不处理
 							return null
 					}
 					const key = isArray ? 'elements': 'properties'

@@ -1,6 +1,6 @@
 # 作用
-可移除未使用导入变量，某些局部变量，例如：
-image.png
+可移除 typescript 中未使用导入变量，某些局部变量
+> tsx 项目需结合 eslint-plugin-react 使用
 
 # 使用
 安装：
@@ -23,7 +23,14 @@ module.exports = {
     }
 }
 
+执行修复 `package.json` 配置：
 ```
+  "scripts": {
+    "lint": "eslint ./src --fix . --ext .ts,.tsx",
+  }
+```
+> 注：由于是移除操作，还是谨慎操作，做好review，特别是注意带有side-effects的导入
+
 # 参考：
 1.  [eslint-rule-composer](https://github.com/not-an-aardvark/eslint-rule-composer)
 2. [eslint-plugin-unused-imports](https://github.com/sweepline/eslint-plugin-unused-imports)
